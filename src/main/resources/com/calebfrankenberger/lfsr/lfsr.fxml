@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.calebfrankenberger.lfsr.EventController">
+   <top>
+      <Label text="Linear Feedback Shift Register" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.49122807017543857" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <BorderPane prefHeight="381.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <Pane prefHeight="75.0" prefWidth="175.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="chooseFileBtn" layoutX="156.0" layoutY="25.0" mnemonicParsing="false" onAction="#onFileChoose" text="Choose FIle" />
+                              <Label layoutX="121.0" layoutY="6.0" prefHeight="17.0" prefWidth="148.0" text="Select a photo to encrypt:" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="imgError" layoutX="134.0" layoutY="53.0" text="Please select an image." textFill="#d74545" visible="false" />
+                           </children>
+                        </Pane>
+                     </top>
+                     <bottom>
+                        <Pane prefHeight="63.0" prefWidth="175.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="encrypt_btn" layoutX="150.0" layoutY="13.0" mnemonicParsing="false" onAction="#onEncryptButton" prefHeight="38.0" prefWidth="90.0" text="Encrypt" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </bottom>
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="seedField" layoutX="120.0" layoutY="86.0" promptText="Seed" />
+                              <Label layoutX="145.0" layoutY="69.0" text="Enter your seed:">
+                                 <tooltip>
+                                    <Tooltip text="You can use either a string of binary (ex. 01010001) or readable text (ex. apples)" />
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label layoutX="149.0" layoutY="188.0" text="Enter your tap:">
+                                 <tooltip>
+                                    <Tooltip text="The tap is the byte position where the LFSR will preform the XOR" />
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tapField" layoutX="117.0" layoutY="205.0" promptText="Tap" />
+                              <Label layoutX="7.0" layoutY="230.0" prefHeight="74.0" prefWidth="390.0" text="TIP: Did you know you can run your encrypted image back through with the same seed and tap location in order to decrypt the image? Try it!" textAlignment="CENTER" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="saveImgBtn" disable="true" layoutX="156.0" layoutY="304.0" mnemonicParsing="false" onAction="#onSaveImageClick" text="Save Image" />
+                              <Label layoutX="46.0" prefHeight="77.0" prefWidth="313.0" text="Your seed can either be a string of binary (ex. 10110010) or a readable phrase! (ex. pleasehireme). For larger images use a longer seed to get better encryption." textAlignment="CENTER" wrapText="true" />
+                              <Label layoutX="38.0" layoutY="117.0" prefHeight="71.0" prefWidth="312.0" text="The tap location is where the XOR is performed, there are formulas to calculate the best tap locations for a certain length of seed, but I'll just let you figure it out." textAlignment="CENTER" wrapText="true" />
+                           </children>
+                        </Pane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="seedError" layoutX="61.0" layoutY="145.0" prefHeight="46.0" prefWidth="281.0" text="Error! Invalid seed format, please only use binary or an alphanumeric phrase." textAlignment="CENTER" textFill="#f2503e" visible="false" wrapText="true" />
+                  <Label fx:id="tapError" layoutX="61.0" layoutY="241.0" prefHeight="94.0" prefWidth="281.0" text="Error! Invalid tap format, please enter a single number for your tap point that is less than the length of your seed." textAlignment="CENTER" textFill="#f2503e" visible="false" wrapText="true" />
+                  <Label layoutX="63.0" layoutY="14.0" text="Hi! Welcome to my LFSR image encryption program." />
+                  <Label layoutX="37.0" layoutY="31.0" prefHeight="117.0" prefWidth="330.0" text="This program will take an image file (.png and .jpg are accepted) and encrypt it using the LFSR algorithm by XOR'ing each pixel of the image with a new value generated by the register." textAlignment="CENTER" wrapText="true" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
