@@ -5,8 +5,7 @@ Welcome to my LFSR Image Encryption program. This application takes in an image 
 To use the application, start by selecting an image you want to encrypt. Next, you'll need a seed. Valid seeds include either a string of binary (e.g. 01101010) or an alphanumeric string (e.g. HelloImASeed7). After you've picked your seed, decide on your tap location. The tap location is the position where the XOR will be performed against the first bit of the binary string. 
 
 
-**You can download the program here:**
-https://www.dropbox.com/scl/fi/gvo1hb38tffls1om7lbb1/lfsr-image-encryption.zip?rlkey=ro1344ubpbv8lm139vi3npm4t&dl=0
+**You can download the program here:** <a href="https://www.dropbox.com/scl/fi/gvo1hb38tffls1om7lbb1/lfsr-image-encryption.zip?rlkey=ro1344ubpbv8lm139vi3npm4t&dl=0" target="_blank">DropBox Link</a>
 
 ## Examples 
 <details>
