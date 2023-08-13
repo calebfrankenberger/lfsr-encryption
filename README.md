@@ -1,4 +1,4 @@
-# lfsr-encryption
+# lfsr-image-encryption
 Welcome to my LFSR Image Encryption program. This application takes in an image and encrypts it using my linear feedback shift register algorithm. You can customize the encryption process by messing around with different seeds and tap points. Once you encrypt the image the way you want it, make sure you save your image along with the seed and tap point, because you can run it back through to decrypt it back to the original.
 
 ## Instructions
