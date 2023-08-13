@@ -8,20 +8,20 @@ To use the application, start by selecting an image you want to encrypt. Next, y
 <details>
   <summary>Application home screen</summary>
   <p align=center>
-    <img src="https://github.com/calebfrankenberger/lfsr-encryption/assets/69817026/30f5cfbf-3a7d-44ea-af46-94f5ea8b6683">
+    <img src="https://github.com/calebfrankenberger/lfsr-encryption-3/assets/69817026/bb5dd403-67f3-488e-8f27-0268aa8f512c">
   </p>
 </details>
 <details>
   <summary>Before vs after LFSR encryption</summary>
  <p align=center>
-     <img src="https://github.com/calebfrankenberger/lfsr-encryption/assets/69817026/34cecf4c-f920-43e8-8552-12cddbd5c06b">
+     <img src="https://github.com/calebfrankenberger/lfsr-encryption-3/assets/69817026/7a963763-f41d-412c-8aec-85b04ee03cb0">
  </p>
 </details>
 
 ## How it works
 A linear feedback shift register (LFSR) starts with an initial state, called the seed. To perform a step of the LFSR operation, first all of the bits are shifted over by one. To calculate the bit to fill in the now-empty spot, an XOR operation is done. The XOR happens with either the leftmost or rightmost bit of the seed, and the "tap" bit. Sometimes multiple tap bits (and therefore multiple XORs) can be used. 
 <p align=center>
-  <img src="https://github.com/calebfrankenberger/lfsr-encryption/assets/69817026/d146192c-7949-488a-9f5d-8783c17db7e2">
+  <img src="https://github.com/calebfrankenberger/lfsr-encryption-3/assets/69817026/779539ca-d97d-442d-b24f-40c46122946d">
 </p>
 The diagram above shows one step of an LFSR. Usually several more steps are performed. The result of the XOR is output by each step. Multiple steps together can be used to generate psuedo-random numbers. In my program, the random numbers are used to calculate a new ARGB value for each pixel in an image. 
 <br><br>
